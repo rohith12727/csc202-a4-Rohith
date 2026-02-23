@@ -23,11 +23,11 @@ class WLNode:
     rest: WordLinesList
 
 @dataclass
-class Hashtable:
+class HashTable:
     bin: List[WordLinesList]
-    Count: int
+    count: int
 
-num_bins = len(Hashtable.bin)
+num_bins = len(table.bin)
 
 # Return the hash code of 's' 
 def hash_fn(s: str) -> int:
@@ -36,11 +36,15 @@ def hash_fn(s: str) -> int:
         h = (h * 31 + ord(ch)) % num_bins
     return h
 
-
 # Make a fresh hash table with the given number of bins 'size',
 # containing no elements.
 def make_hash(size: int) -> HashTable:
-    pass
+    return HashTable([None] * size, 0)
+
+
+
+
+
 # Return the number of bins in 'ht'.
 def hash_size(ht: HashTable) -> int:
     pass
