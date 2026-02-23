@@ -27,7 +27,7 @@ class HashTable:
     bin: List[WordLinesList]
     count: int
 
-num_bins = len(table.bin)
+num_bins = hash_size(HashTable)
 
 # Return the hash code of 's' 
 def hash_fn(s: str) -> int:
@@ -41,16 +41,14 @@ def hash_fn(s: str) -> int:
 def make_hash(size: int) -> HashTable:
     return HashTable([None] * size, 0)
 
-
-
-
-
 # Return the number of bins in 'ht'.
 def hash_size(ht: HashTable) -> int:
-    pass
+    return len(ht.bin)
+
 # Return the number of elements (key-value pairs) in 'ht'.
 def hash_count(ht: HashTable) -> int:
-    pass
+    return ht.count
+
 # Return whether 'ht' contains a mapping for the given 'word'.
 def has_key(ht: HashTable, word: str) -> bool:
     pass
