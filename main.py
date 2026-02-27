@@ -128,7 +128,6 @@ def tokenize_line(line: str) -> List[str]:
 # a sequence of strings 'lines' representing the lines of a document,
 # return a hash table representing a concordance of that document.
 def make_concordance(stop_words: HashTable, lines: List[str]) -> HashTable:
-    # default starting size is 128 bins
     ht = make_hash(128)
     for line_no, text in enumerate(lines, start=1):  # blank lines count too
         for w in tokenize_line(text):
@@ -236,6 +235,6 @@ class Tests(unittest.TestCase):
             ])'''
 
 if (__name__ == '__main__'):
-    full_concordance("input.txt", "stop_words.txt", "output.txt")
+    full_concordance("sample_input.txt", "stop_words.txt", "output.txt")
     '''unittest.main()'''
     
