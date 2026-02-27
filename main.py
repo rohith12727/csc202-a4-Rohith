@@ -211,30 +211,27 @@ class Tests(unittest.TestCase):
         self.assertEqual(set(lookup(conc, "cat")), {1, 2})
         self.assertEqual(set(lookup(conc, "dog")), {2})
 
-    '''def test_full_concordance(self):
-        with tempfile.TemporaryDirectory() as d:
-            in_file = os.path.join(d, "in.txt")
-            stop_file = os.path.join(d, "stop.txt")
-            out_file = os.path.join(d, "out.txt")
+    def test_full_concordance(self):
+        full_concordance("sample_input.txt", "stop_words.txt", "sample_output.txt")
 
-            with open(stop_file, "w") as f:
-                f.write("the\n")
+        with open("sample_output.txt", "r", encoding="utf-8") as f:
+            actual = f.read()
 
-            with open(in_file, "w") as f:
-                f.write("The cat.\n")
-                f.write("Cat dog.\n")
-
-            full_concordance(in_file, stop_file, out_file)
-
-            with open(out_file, "r") as f:
-                lines = [line.strip() for line in f if line.strip()]
-
-            self.assertEqual(lines, [
-                "cat: 1 2",
-                "dog: 2"
-            ])'''
-
+        expected = (
+            "cat: 1 3\n"
+            "dog: 2 3 4\n"
+            "hello: 4\n"
+            "however: 4\n"
+            "i: 4\n"
+            "mat: 1\n"
+            "rug: 2 3\n"
+            "said: 4\n"
+            "sat: 1 2 3\n"
+            "together: 3\n"
+            "wrong: 4\n")
+        self.assertEqual(actual, expected)
+        
 if (__name__ == '__main__'):
-    full_concordance("sample_input.txt", "stop_words.txt", "output.txt")
-    '''unittest.main()'''
+    full_concordance("sample_input.txt", "stop_words.txt", "sample_output.txt")
+    unittest.main()
     

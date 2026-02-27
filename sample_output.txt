@@ -1,0 +1,11 @@
+cat: 1 3
+dog: 2 3 4
+hello: 4
+however: 4
+i: 4
+mat: 1
+rug: 2 3
+said: 4
+sat: 1 2 3
+together: 3
+wrong: 4
